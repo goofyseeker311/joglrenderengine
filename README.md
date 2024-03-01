@@ -16,7 +16,7 @@ https://www.eclipse.org/downloads/packages/release/2023-12/r/eclipse-ide-java-de
 Download JOGL version 2.5.0 or later for your platform at https://jogamp.org/.
 
 To make an executable .jar file, export runnable .jar from eclipse with package required libraries into generated JAR.
-After generating application .jar, add platform specific javafx jars and binaries to the root of the .jar zip file.
+After generating application .jar, add platform specific JOGL jars and binaries to the root of the .jar zip file.
 
 # Licence (FSNLR -- Free Software No License Required)
 This is free software which does not require any license agreement under government enforcement to limit it's freedom of usage for any purpose.
