@@ -72,11 +72,11 @@ public class JOGLRenderEngine implements GLEventListener {
  
 	public static void main(String[] args) {
 		final GLCanvas canvas = new GLCanvas();
-		final Frame frame = new Frame("Jogl Quad drawing");
+		final Frame frame = new Frame("JOGL Render Engine v0.0.2");
 		final Animator animator = new Animator(canvas);
 		canvas.addGLEventListener(new JOGLRenderEngine());
 		frame.add(canvas);
-		frame.setSize(640, 480);
+		frame.setSize(1920, 1080);
 		frame.setResizable(false);
 		frame.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
