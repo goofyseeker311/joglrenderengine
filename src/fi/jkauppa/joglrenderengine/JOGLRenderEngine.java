@@ -72,7 +72,7 @@ public class JOGLRenderEngine implements GLEventListener {
  
 	public static void main(String[] args) {
 		final GLCanvas canvas = new GLCanvas();
-		final Frame frame = new Frame("JOGL Render Engine v0.0.2");
+		final Frame frame = new Frame("JOGL Render Engine v0.0.3");
 		final Animator animator = new Animator(canvas);
 		canvas.addGLEventListener(new JOGLRenderEngine());
 		frame.add(canvas);
