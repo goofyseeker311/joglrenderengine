@@ -3,6 +3,12 @@ JOGL Render Engine
 
 # Installing and running
 
+Primary running method from console command after extracting javarenderengine.jar file contents to a directory:
+
+```
+java --add-exports java.base/java.lang=ALL-UNNAMED --add-exports java.desktop/sun.java2d=ALL-UNNAMED --add-opens java.desktop/sun.awt=ALL-UNNAMED --add-opens java.desktop/sun.awt.windows=ALL-UNNAMED -classpath "jogamp-fat.jar;." fi.jkauppa.joglrenderengine.JOGLRenderEngine
+```
+
 Alternative way of running the program is to open a console window on the javarenderengine.jar location and type command
 "java -jar javarenderengine.jar", which will also show debug output text on the console window. Otherwise console debug output
 can be activated in the Java Control Panel or Configure Java application -> Advanced -> Java console -> Show console and
