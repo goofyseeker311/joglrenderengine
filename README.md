@@ -6,8 +6,10 @@ JOGL Render Engine
 Primary running method from console command after downloading javarenderengine.jar file (one line command):
 
 ```
-java --add-exports java.base/java.lang=ALL-UNNAMED --add-exports java.desktop/sun.java2d=ALL-UNNAMED
-     --add-opens java.desktop/sun.awt=ALL-UNNAMED --add-opens java.desktop/sun.awt.windows=ALL-UNNAMED
+java --add-exports java.base/java.lang=ALL-UNNAMED
+     --add-exports java.desktop/sun.java2d=ALL-UNNAMED
+     --add-opens java.desktop/sun.awt=ALL-UNNAMED
+     --add-opens java.desktop/sun.awt.windows=ALL-UNNAMED
      -jar javarenderengine.jar
 ```
 
