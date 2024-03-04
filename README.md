@@ -3,10 +3,10 @@ JOGL Render Engine
 
 # Installing and running
 
-Primary running method from console command after extracting javarenderengine.jar file contents to a directory:
+Primary running method from console command after downloading javarenderengine.jar file:
 
 ```
-java --add-exports java.base/java.lang=ALL-UNNAMED --add-exports java.desktop/sun.java2d=ALL-UNNAMED --add-opens java.desktop/sun.awt=ALL-UNNAMED --add-opens java.desktop/sun.awt.windows=ALL-UNNAMED -classpath "jogamp-fat.jar;." fi.jkauppa.joglrenderengine.JOGLRenderEngine
+java --add-exports java.base/java.lang=ALL-UNNAMED --add-exports java.desktop/sun.java2d=ALL-UNNAMED --add-opens java.desktop/sun.awt=ALL-UNNAMED --add-opens java.desktop/sun.awt.windows=ALL-UNNAMED -jar .\javarenderengine.jar
 ```
 
 Alternative way of running the program is to open a console window on the javarenderengine.jar location and type command
