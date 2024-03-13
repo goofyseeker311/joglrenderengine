@@ -1,10 +1,18 @@
 package fi.jkauppa.joglrenderengine;
 
-import java.awt.*;
-import java.awt.event.*;
-import com.jogamp.opengl.*;
-import com.jogamp.opengl.awt.GLCanvas;
-import com.jogamp.opengl.fixedfunc.*;
+import java.awt.Dimension;
+
+import javax.swing.JFrame;
+
+import com.jogamp.opengl.GL;
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.GL2ES1;
+import com.jogamp.opengl.GLAutoDrawable;
+import com.jogamp.opengl.GLCapabilities;
+import com.jogamp.opengl.GLEventListener;
+import com.jogamp.opengl.awt.GLJPanel;
+import com.jogamp.opengl.fixedfunc.GLLightingFunc;
+import com.jogamp.opengl.fixedfunc.GLMatrixFunc;
 import com.jogamp.opengl.util.Animator;
  
 /**
@@ -12,11 +20,9 @@ import com.jogamp.opengl.util.Animator;
  * displaying a rotating quad
  */
 public class JOGLRenderEngine implements GLEventListener {
- 
 	private float rotateT = 0.0f;
  
-	@Override
-	public void display(GLAutoDrawable gLDrawable) {
+	@Override public void display(GLAutoDrawable gLDrawable) {
 		final GL2 gl = gLDrawable.getGL().getGL2();
 		gl.glClear(GL.GL_COLOR_BUFFER_BIT);
 		gl.glClear(GL.GL_DEPTH_BUFFER_BIT);
@@ -42,8 +48,7 @@ public class JOGLRenderEngine implements GLEventListener {
 		rotateT += 0.2f; 
 	}
  
-	@Override
-	public void init(GLAutoDrawable glDrawable) {
+	@Override public void init(GLAutoDrawable glDrawable) {
 		GL2 gl = glDrawable.getGL().getGL2();
 		gl.glShadeModel(GLLightingFunc.GL_SMOOTH);
 		gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -53,8 +58,7 @@ public class JOGLRenderEngine implements GLEventListener {
 		gl.glHint(GL2ES1.GL_PERSPECTIVE_CORRECTION_HINT, GL.GL_NICEST);
 	}
  
-	@Override
-	public void reshape(GLAutoDrawable gLDrawable, int x, int y, int width, int height) {
+	@Override public void reshape(GLAutoDrawable gLDrawable, int x, int y, int width, int height) {
 		GL2 gl = gLDrawable.getGL().getGL2();
 		final float aspect = (float) width / (float) height;
 		gl.glMatrixMode(GLMatrixFunc.GL_PROJECTION);
@@ -66,27 +70,23 @@ public class JOGLRenderEngine implements GLEventListener {
 		gl.glLoadIdentity();
 	}
  
-	@Override
-	public void dispose(GLAutoDrawable gLDrawable) {
-	}
+	@Override public void dispose(GLAutoDrawable gLDrawable) {}
  
 	public static void main(String[] args) {
-		final GLCanvas canvas = new GLCanvas();
-		final Frame frame = new Frame("JOGL Render Engine v0.0.4");
-		final Animator animator = new Animator(canvas);
-		canvas.addGLEventListener(new JOGLRenderEngine());
-		frame.add(canvas);
-		frame.setSize(1920, 1080);
+        GLCapabilities caps = new GLCapabilities(null);
+        JOGLRenderEngine app = new JOGLRenderEngine();
+        JFrame frame = new JFrame("JOGL Render Engine v0.0.5");
+        GLJPanel panel = new GLJPanel(caps);
+        panel.addGLEventListener(app);
+		panel.setSize(1920, 1080);
+		panel.setPreferredSize(new Dimension(1920, 1080));
+		Animator animator = new Animator(panel);
+		frame.setContentPane(panel);
 		frame.setResizable(false);
-		frame.addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent e) {
-				animator.stop();
-				frame.dispose();
-				System.exit(0);
-			}
-		});
+		frame.pack();
 		frame.setVisible(true);
 		animator.start();
-		canvas.requestFocus();
+		panel.requestFocus();
 	}
+	
 }
