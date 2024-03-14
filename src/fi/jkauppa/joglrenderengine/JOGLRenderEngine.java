@@ -75,7 +75,8 @@ public class JOGLRenderEngine implements GLEventListener {
 	public static void main(String[] args) {
 		GLCapabilities caps = new GLCapabilities(null);
 		JOGLRenderEngine app = new JOGLRenderEngine();
-		JFrame frame = new JFrame("JOGL Render Engine v0.0.6");
+		JFrame frame = new JFrame("JOGL Render Engine v0.0.7");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GLJPanel panel = new GLJPanel(caps);
 		panel.addGLEventListener(app);
 		panel.setSize(1920, 1080);
