@@ -42,9 +42,9 @@ public class JOGLRenderEngine implements GLEventListener {
 		gl.glVertex3f( 1.0f,-1.0f, 0.0f);   // Bottom Right
 		gl.glVertex3f(-1.0f,-1.0f, 0.0f);   // Bottom Left
 		// Done Drawing The Quad
-		gl.glEnd();                                                     
+		gl.glEnd();
  
-		// increasing rotation for the next iteration                   
+		// increasing rotation for the next iteration
 		rotateT += 0.2f; 
 	}
  
@@ -73,11 +73,11 @@ public class JOGLRenderEngine implements GLEventListener {
 	@Override public void dispose(GLAutoDrawable gLDrawable) {}
  
 	public static void main(String[] args) {
-        GLCapabilities caps = new GLCapabilities(null);
-        JOGLRenderEngine app = new JOGLRenderEngine();
-        JFrame frame = new JFrame("JOGL Render Engine v0.0.5");
-        GLJPanel panel = new GLJPanel(caps);
-        panel.addGLEventListener(app);
+		GLCapabilities caps = new GLCapabilities(null);
+		JOGLRenderEngine app = new JOGLRenderEngine();
+		JFrame frame = new JFrame("JOGL Render Engine v0.0.6");
+		GLJPanel panel = new GLJPanel(caps);
+		panel.addGLEventListener(app);
 		panel.setSize(1920, 1080);
 		panel.setPreferredSize(new Dimension(1920, 1080));
 		Animator animator = new Animator(panel);
